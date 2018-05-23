@@ -1,0 +1,4 @@
+gmail-smtp.l.google.com:yourname@gmail.com:yourgooglepassword
+smtp.google.com:yourname@gmail.com:yourgooglepassword
+*.google.com:yourname@gmail.com:yourgooglepassword
+gmail-smtp-msa.l.google.com:yourname@gmail.com:yourgooglepassword

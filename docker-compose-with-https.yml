@@ -1,0 +1,27 @@
+
+https-portal:
+  image: steveltn/https-portal
+  ports:
+    - 443:443
+  links:
+    - openconf
+  restart: always
+  environment:
+    DOMAINS: 'your.site.com -> http://openconf'
+    PRODUCTION: 'true'
+
+openconf:
+  build: .
+  links:
+    - mariadb
+  restart: always
+  volumes:
+    - ./oc_data:/var/www/html/data
+
+mariadb:
+  image: mariadb
+  environment:
+    MYSQL_ROOT_PASSWORD: my-secret-pw
+  restart: always
+  volumes:
+    - ./db_data:/var/lib/mysql
