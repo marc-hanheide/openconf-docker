@@ -1,18 +1,22 @@
+services:
+  openconf:
+    build: .
+    ports:
+      - 1881:80
+    links:
+      - mariadb
+    restart: always
+    volumes:
+      - ./data/oc_data:/var/www/html/data
+      - ./config.php:/var/www/html/config.php:ro
 
-openconf:
-  build: .
-  ports:
-    - 80:80
-  links:
-    - mariadb
-  restart: always
-  volumes:
-    - ./oc_data:/var/www/html/data
-
-mariadb:
-  image: mariadb
-  environment:
-    MYSQL_ROOT_PASSWORD: my-secret-pw
-  restart: always
-  volumes:
-    - ./db_data:/var/lib/mysql
+  mariadb:
+    image: mariadb
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_USER: openconf
+      MYSQL_PASSWORD: openconf
+      MYSQL_DATABASE: openconf
+    restart: always
+    volumes:
+      - ./data/db_data:/var/lib/mysql

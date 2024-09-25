@@ -1,3 +1,13 @@
+# LOCAL INSTALL
+
+chair account:
+
+username: `mhanheide`
+password: `/a3fhb3YameS2hC4`
+
+
+
+
 # openconf-docker
 
 [OpenConf](https://www.openconf.com/)の評価時に、dockerizeされたものが見つからなかったので作りました。OpenConfをコンテナベースで配備します。version6.81で動作確認しました。https化の部分は、評価時にそこまでやってないので、動作未確認ですが、タブン動くと思います。
